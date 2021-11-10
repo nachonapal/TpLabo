@@ -74,18 +74,18 @@ exec spConsultarAlumnosMateria 1,2021
 --select dbo.fPromedioAlumno(100015,'Fisica') as 'Promedio de Notas'
 
 --5)Vista que muestra todos los alumnos, las materias en las que estan inscriptos, el estado academico de las mismas, el curso y la carrera, que se hayan inscripto en el ultimo año
---CREATE VIEW vEstadisticas
---AS
---	select al.legajo as Legajo,mat.nombre as Materia, eAc.estado_academico as 'Estado Academico', cur.curso as Curso, car.nombre as Carrera
---	from MATERIAS_ALUMNOS mAl
---	inner join ALUMNOS al on mAl.legajo = al.legajo
---	inner join DETALLES_EXAMEN det on det.legajo = al.legajo
---	inner join CURSOS cur on cur.id_curso = mAl.id_curso
---	inner join MATERIAS mat on mat.id_materia = mAl.id_materia
---	inner join CARRERAS car on car.id_carrera = mat.id_carrera
---	inner join TIPOS_ESTADO_ACADEMICO eAc on eAc.id_estado_academico = mAl.id_estado_academico 
---	group by al.legajo,mat.nombre,eAc.estado_academico,cur.curso,car.nombre,mAl.anio_inscripcion
---	having mAl.anio_inscripcion <= YEAR(DATEADD(YEAR,-1,GETDATE()))
+CREATE VIEW vEstadisticas
+AS
+	select al.legajo as Legajo,mat.nombre as Materia, eAc.estado_academico as 'Estado Academico', cur.curso as Curso, car.nombre as Carrera
+	from MATERIAS_ALUMNOS mAl
+	inner join ALUMNOS al on mAl.legajo = al.legajo
+	inner join DETALLES_EXAMEN det on det.legajo = al.legajo
+	inner join CURSOS cur on cur.id_curso = mAl.id_curso
+	inner join MATERIAS mat on mat.id_materia = mAl.id_materia
+	inner join CARRERAS car on car.id_carrera = mat.id_carrera
+	inner join TIPOS_ESTADO_ACADEMICO eAc on eAc.id_estado_academico = mAl.id_estado_academico 
+	group by al.legajo,mat.nombre,eAc.estado_academico,cur.curso,car.nombre,mAl.anio_inscripcion
+	having mAl.anio_inscripcion <= YEAR(DATEADD(YEAR,-1,GETDATE()))
 
 --6)Trigger que al insertar una nota cambie el estado academico del alumno en la materia. Promociona con dos 8 o mas. Aprueba con dos 6 o mas.
 --alter TRIGGER triggerExamenRendido
@@ -155,25 +155,25 @@ end
 	
 
 ----8)Alumnos que no han rendido o no han aprobado materias en los años anteriores al pasado por parametro.
---CREATE PROCEDURE spConsultaExamenesNoAprobOAusentes
---	@anio int
---as
---begin
+CREATE PROCEDURE spConsultaExamenesNoAprobOAusentes
+	@anio int
+as
+begin
 	
---select al.legajo
---	from ALUMNOS al
---	where al.legajo not  in (select dEx.legajo 
---						from DETALLES_EXAMEN dEx
---						join EXAMENES ex on dEx.id_examen = ex.id_examen
---						where dEx.legajo = al.legajo
---						and YEAR(ex.fecha) < @anio
---						and 6 < all(select nota from DETALLES_EXAMEN det
---									where det.legajo = al.legajo))
---	group by al.legajo
---	order by 1
+select al.legajo,al.apellido +', '+ al.nombre as Alumno
+	from ALUMNOS al
+	where al.legajo not  in (select dEx.legajo 
+						from DETALLES_EXAMEN dEx
+						join EXAMENES ex on dEx.id_examen = ex.id_examen
+						where dEx.legajo = al.legajo
+						and (@anio is null or YEAR(ex.fecha) < @anio)
+						and 6 < all(select nota from DETALLES_EXAMEN det
+									where det.legajo = al.legajo))
+	group by al.legajo,al.apellido,al.nombre
+	order by 1
 	
---end
---exec spConsultaExamenesNoAprobOAusentes 2022
+end
+--exec spConsultaExamenesNoAprobOAusentes 202
 CREATE PROCEDURE OBTENER_MATERIAS
 as
 begin

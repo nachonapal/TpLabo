@@ -37,6 +37,7 @@ namespace TpLaboratorio
             this.rbC1 = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnlLimpiar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblAnio = new System.Windows.Forms.Label();
@@ -48,11 +49,18 @@ namespace TpLaboratorio
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btnlLimpiar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAnio = new System.Windows.Forms.TextBox();
+            this.lblCantReg = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -172,6 +180,16 @@ namespace TpLaboratorio
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnlLimpiar
+            // 
+            this.btnlLimpiar.Location = new System.Drawing.Point(42, 74);
+            this.btnlLimpiar.Name = "btnlLimpiar";
+            this.btnlLimpiar.Size = new System.Drawing.Size(64, 23);
+            this.btnlLimpiar.TabIndex = 7;
+            this.btnlLimpiar.Text = "Limpiar";
+            this.btnlLimpiar.UseVisualStyleBackColor = true;
+            this.btnlLimpiar.Click += new System.EventHandler(this.btnlLimpiar_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -274,6 +292,12 @@ namespace TpLaboratorio
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.lblCantReg);
+            this.tabPage5.Controls.Add(this.label3);
+            this.tabPage5.Controls.Add(this.txtAnio);
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Controls.Add(this.button2);
+            this.tabPage5.Controls.Add(this.dataGridView2);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -282,15 +306,67 @@ namespace TpLaboratorio
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // btnlLimpiar
+            // label2
             // 
-            this.btnlLimpiar.Location = new System.Drawing.Point(42, 74);
-            this.btnlLimpiar.Name = "btnlLimpiar";
-            this.btnlLimpiar.Size = new System.Drawing.Size(64, 23);
-            this.btnlLimpiar.TabIndex = 7;
-            this.btnlLimpiar.Text = "Limpiar";
-            this.btnlLimpiar.UseVisualStyleBackColor = true;
-            this.btnlLimpiar.Click += new System.EventHandler(this.btnlLimpiar_Click);
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(139, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(384, 59);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Alumnos que no han rendido o no han aprobado materias en los años anteriores al p" +
+    "asado por parametro.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(279, 127);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 172);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(641, 271);
+            this.dataGridView2.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(299, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 17);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Año";
+            // 
+            // txtAnio
+            // 
+            this.txtAnio.Location = new System.Drawing.Point(257, 90);
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(121, 20);
+            this.txtAnio.TabIndex = 15;
+            // 
+            // lblCantReg
+            // 
+            this.lblCantReg.AutoSize = true;
+            this.lblCantReg.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantReg.Location = new System.Drawing.Point(6, 133);
+            this.lblCantReg.Name = "lblCantReg";
+            this.lblCantReg.Size = new System.Drawing.Size(168, 17);
+            this.lblCantReg.TabIndex = 17;
+            this.lblCantReg.Text = "Cantidad de Registros: 0";
             // 
             // Inicio
             // 
@@ -307,6 +383,9 @@ namespace TpLaboratorio
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,6 +412,12 @@ namespace TpLaboratorio
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnlLimpiar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtAnio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label lblCantReg;
     }
 }
 

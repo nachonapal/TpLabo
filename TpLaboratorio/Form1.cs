@@ -68,6 +68,7 @@ namespace TpLaboratorio
                     if (anioInscripcion > 3000 || anioInscripcion < 1950) {
                         MessageBox.Show("Ingrese un año válido", "Año incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtAnioInscripcion.Text = "";
+                        dataGridView1.DataSource = null;
                         return;
                     }
                     parametros.Add("@anio", anioInscripcion);
@@ -76,6 +77,7 @@ namespace TpLaboratorio
                 {
                     MessageBox.Show("Ingrese un año válido", "Año incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAnioInscripcion.Focus();
+                    dataGridView1.DataSource = null;
                     return;
                 }
             }
@@ -98,6 +100,48 @@ namespace TpLaboratorio
             comboBox1.DataSource = consultasDao.GetMaterias();
             comboBox1.DisplayMember = "Nombre";
             comboBox1.ValueMember = "IdMateria";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+
+            if (String.IsNullOrEmpty(txtAnio.Text))
+            {
+                MessageBox.Show("Ingrese un año", "Año nulo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAnio.Text = "";
+                dataGridView2.DataSource = null;
+                lblCantReg.Text = "Cantidad de Registros: 0";
+                return;
+            }
+            else
+            {
+                try
+                {
+                    int anio = Convert.ToInt32(txtAnio.Text);
+                    if (anio > 3000 || anio < 1950)
+                    {
+                        MessageBox.Show("Ingrese un año válido", "Año incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtAnio.Text = "";
+                        dataGridView2.DataSource = null;
+                        lblCantReg.Text = "Cantidad de Registros: 0";
+                        return;
+                    }
+                    parametros.Add("@anio", anio);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ingrese un año válido", "Año incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAnio.Focus();
+                    dataGridView2.DataSource = null;
+                    lblCantReg.Text = "Cantidad de Registros: 0";
+                    return;
+                }
+                dataGridView2.DataSource = consultasDao.GetConsulta("spConsultaExamenesNoAprobOAusentes", parametros);
+                parametros.Clear();
+                lblCantReg.Text = $"Cantidad de Registros: {dataGridView2.Rows.Count}";
+
+            }
         }
     }
 }
