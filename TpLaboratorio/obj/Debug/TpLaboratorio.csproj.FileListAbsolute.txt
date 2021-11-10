@@ -1,0 +1,10 @@
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\bin\Debug\TpLaboratorio.exe.config
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\bin\Debug\TpLaboratorio.exe
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\bin\Debug\TpLaboratorio.pdb
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.csproj.AssemblyReference.cache
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.Inicio.resources
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.Properties.Resources.resources
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.csproj.GenerateResource.cache
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.csproj.CoreCompileInputs.cache
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.exe
+C:\Users\lnapal\Desktop\UTN\TP LABO\TpLaboratorio\obj\Debug\TpLaboratorio.pdb
