@@ -102,7 +102,7 @@ namespace TpLaboratorio
 
         private void btnlLimpiar_Click(object sender, EventArgs e)
         {
-            
+            comboBox1.SelectedIndex = -1;
         }
         private void CargarMaterias() {
 
