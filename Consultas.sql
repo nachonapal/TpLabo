@@ -1,25 +1,25 @@
 --1)Cantidades de alumnos  por edades, estado civil, situación habitacional y laboral, etc.
---CREATE PROCEDURE spCantidadAlumnosFiltrados
---@edad int,
---@estadoCivil int,
---@situacionHab int,
---@situacionLab int
---AS
---	declare @cantidad int;
---	BEGIN
---		set @cantidad = (select count(*)  as 'Cantidad de Alumnos'
---			from ALUMNOS
---			where (@edad is null or (DATEDIFF(YEAR,fecha_nac,GETDATE())) = @edad)
---			and (@estadoCivil is null or id_estado_civil = @estadoCivil)
---			and (@situacionHab is null or id_situacion_habitacional = @situacionHab)
---			and (@situacionLab is null or id_situacion_laboral = @situacionLab))
+CREATE PROCEDURE spCantidadAlumnosFiltrados
+@edad int,
+@estadoCivil int,
+@situacionHab int,
+@situacionLab int
+AS
+	declare @cantidad int;
+	BEGIN
+		set @cantidad = (select count(*)  as 'Cantidad de Alumnos'
+			from ALUMNOS
+			where (@edad is null or (DATEDIFF(YEAR,fecha_nac,GETDATE())) = @edad)
+			and (@estadoCivil is null or id_estado_civil = @estadoCivil)
+			and (@situacionHab is null or id_situacion_habitacional = @situacionHab)
+			and (@situacionLab is null or id_situacion_laboral = @situacionLab))
 		
---		if(@cantidad > 0)
---			select @cantidad
---		else
---			raiserror('No se encontraron resultados',10,1)
+		if(@cantidad > 0)
+			select @cantidad
+		else
+			raiserror('No se encontraron resultados',10,1)
 		
---	END
+	END
 
 --exec dbo.spCantidadAlumnosFiltrados
 --@edad = 50,
@@ -129,10 +129,12 @@ AS
 --insert into DETALLES_EXAMEN values(26,100014,1,8)
 --insert into DETALLES_EXAMEN values(1,100014,1,8)
 
+
+select * from DETALLES_EXAMEN
 --7)Cantidad de alumnos  filtrados por estado academico y materia, ingresados por parametro.
 CREATE PROCEDURE spConsultaEstadosAcademicos
 @estadoAcademico varchar(40),
-@nombreMateria varchar(40)
+@idMateria int
 as 
 begin
 declare @idEstadoAcademico int;
@@ -147,11 +149,11 @@ declare @idEstadoAcademico int;
 	join MATERIAS mat on mat.id_materia = mAl.id_materia
 	join TIPOS_ESTADO_ACADEMICO est on est.id_estado_academico = mAl.id_estado_academico
 	where mAl.id_estado_academico = @idEstadoAcademico
-	and (@nombreMateria is null or mat.nombre = @nombreMateria)
+	and (@idMateria is null or mat.id_materia = @idMateria)
 	group by mAl.id_materia, mat.nombre,est.estado_academico
 
 end
-	exec spConsultaEstadosAcademicos null,null
+	exec spConsultaEstadosAcademicos 'Libre',null
 	
 
 ----8)Alumnos que no han rendido o no han aprobado materias en los años anteriores al pasado por parametro.
@@ -160,7 +162,7 @@ CREATE PROCEDURE spConsultaExamenesNoAprobOAusentes
 as
 begin
 	
-select al.legajo,al.apellido +', '+ al.nombre as Alumno
+select al.legajo as Legajo,al.apellido +', '+ al.nombre as Alumno
 	from ALUMNOS al
 	where al.legajo not  in (select dEx.legajo 
 						from DETALLES_EXAMEN dEx
@@ -179,3 +181,64 @@ as
 begin
 	select id_materia as 'idMateria',nombre as 'Materia' from MATERIAS
 end
+
+CREATE PROCEDURE SP_OBTENER_ALUMNOS
+AS
+BEGIN
+	select legajo as Legajo,apellido +', ' + nombre as Alumno
+	from ALUMNOS
+END
+
+CREATE PROCEDURE SP_OBTENER_EXAMENES
+AS
+BEGIN
+	select id_examen as 'IdExamen',ma.nombre as Materia, tipo_examen as Instancia
+	from EXAMENES ex
+	join MATERIAS ma on ma.id_materia = ex.id_materia
+	join TIPOS_EXAMEN te on te.id_tipo_examen = ex.id_tipo_examen
+END
+
+CREATE PROCEDURE SP_INSERTAR_DETALLE_EXAMEN
+@idExamen int,
+@legajo int, 
+@presente bit,
+@nota int
+AS
+BEGIN
+	insert into DETALLES_EXAMEN values(@idExamen,@legajo,@presente,@nota)
+END
+
+CREATE PROCEDURE SP_OBTENER_DETALLES_EXAMENES
+AS
+BEGIN
+
+	select te.tipo_examen + ' de ' + mat.nombre as Examen,ex.fecha as Fecha ,al.apellido +', ' + al.nombre as Alumno,presente as Presente,dex.nota as Nota
+	from EXAMENES ex
+	join MATERIAS ma on ma.id_materia = ex.id_materia
+	join DETALLES_EXAMEN dex on dex.id_examen = ex.id_examen
+	join ALUMNOS al on al.legajo = dex.legajo
+	join MATERIAS mat on mat.id_materia = ex.id_materia
+	join TIPOS_EXAMEN te on te.id_tipo_examen = ex.id_tipo_examen
+END
+
+CREATE PROCEDURE SP_OBTENER_ESTADOS_ACADEMICOS
+AS
+BEGIN
+
+	select estado_academico as Estado
+	from TIPOS_ESTADO_ACADEMICO
+END
+
+CREATE PROCEDURE SP_MATERIAS_ALUMNOS
+@legajo int
+AS
+BEGIN
+	select ma.nombre as Materia,mal.anio_inscripcion as 'Año de Inscripcion' ,ma.id_anio as 'Año de Cursado', te.estado_academico as Estado
+	from MATERIAS_ALUMNOS mal
+	inner join MATERIAS ma on ma.id_materia = mal.id_materia
+	inner join TIPOS_ESTADO_ACADEMICO te on te.id_estado_academico = mal.id_estado_academico
+	where legajo = @legajo
+END
+exec SP_MATERIAS_ALUMNOS 100018
+
+update 

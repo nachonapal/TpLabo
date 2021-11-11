@@ -29,6 +29,10 @@ namespace TpLaboratorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rbC5 = new System.Windows.Forms.RadioButton();
             this.rbC4 = new System.Windows.Forms.RadioButton();
@@ -46,21 +50,51 @@ namespace TpLaboratorio
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cboAlumnos = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboExamenes = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnLimpiarT3 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboMateriasT3 = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.lblCantReg = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAnio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAnio = new System.Windows.Forms.TextBox();
-            this.lblCantReg = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnBuscarT3 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dgvT3 = new System.Windows.Forms.DataGridView();
+            this.cboEstadoAcademico = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvT3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -224,7 +258,7 @@ namespace TpLaboratorio
             // 
             this.lblMaterias.AutoSize = true;
             this.lblMaterias.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaterias.Location = new System.Drawing.Point(150, 54);
+            this.lblMaterias.Location = new System.Drawing.Point(165, 54);
             this.lblMaterias.Name = "lblMaterias";
             this.lblMaterias.Size = new System.Drawing.Size(64, 17);
             this.lblMaterias.TabIndex = 3;
@@ -243,7 +277,7 @@ namespace TpLaboratorio
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(123, 74);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(152, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // dataGridView1
@@ -253,6 +287,7 @@ namespace TpLaboratorio
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 122);
             this.dataGridView1.Name = "dataGridView1";
@@ -262,6 +297,20 @@ namespace TpLaboratorio
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.checkBox1);
+            this.tabPage2.Controls.Add(this.cboAlumnos);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.numericUpDown1);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.dgvDetalles);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.cboExamenes);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -270,8 +319,192 @@ namespace TpLaboratorio
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(528, 72);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 17);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Presente";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.Location = new System.Drawing.Point(552, 98);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(12, 11);
+            this.checkBox1.TabIndex = 21;
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // cboAlumnos
+            // 
+            this.cboAlumnos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAlumnos.FormattingEnabled = true;
+            this.cboAlumnos.Location = new System.Drawing.Point(345, 91);
+            this.cboAlumnos.Name = "cboAlumnos";
+            this.cboAlumnos.Size = new System.Drawing.Size(174, 21);
+            this.cboAlumnos.TabIndex = 19;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(9, 121);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(638, 23);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "Cargar Nota";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(600, 72);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 17);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Nota";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.Crimson;
+            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown1.ForeColor = System.Drawing.Color.White;
+            this.numericUpDown1.Location = new System.Drawing.Point(598, 92);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown1.TabIndex = 15;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(291, 92);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(48, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Limpiar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(403, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Alumno";
+            // 
+            // dgvDetalles
+            // 
+            this.dgvDetalles.AllowUserToAddRows = false;
+            this.dgvDetalles.AllowUserToDeleteRows = false;
+            this.dgvDetalles.AllowUserToResizeColumns = false;
+            this.dgvDetalles.AllowUserToResizeRows = false;
+            this.dgvDetalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDetalles.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDetalles.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Location = new System.Drawing.Point(6, 190);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.ReadOnly = true;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            this.dgvDetalles.Size = new System.Drawing.Size(641, 264);
+            this.dgvDetalles.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(135, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Examen";
+            // 
+            // cboExamenes
+            // 
+            this.cboExamenes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboExamenes.FormattingEnabled = true;
+            this.cboExamenes.Location = new System.Drawing.Point(63, 92);
+            this.cboExamenes.Name = "cboExamenes";
+            this.cboExamenes.Size = new System.Drawing.Size(211, 21);
+            this.cboExamenes.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(641, 59);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Trigger que al insertar una nota cambie el estado academico del alumno en la mate" +
+    "ria. Promociona con dos 8 o más. Aprueba con dos 6 o más.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.cboEstadoAcademico);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.dgvT3);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.btnBuscarT3);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.btnLimpiarT3);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.cboMateriasT3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -280,8 +513,49 @@ namespace TpLaboratorio
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(25, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(605, 45);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Cantidad de alumnos  filtrados por estado academico y materia, ingresados por par" +
+    "ametro. Por defecto trae los libres";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLimpiarT3
+            // 
+            this.btnLimpiarT3.Location = new System.Drawing.Point(61, 96);
+            this.btnLimpiarT3.Name = "btnLimpiarT3";
+            this.btnLimpiarT3.Size = new System.Drawing.Size(64, 23);
+            this.btnLimpiarT3.TabIndex = 10;
+            this.btnLimpiarT3.Text = "Limpiar";
+            this.btnLimpiarT3.UseVisualStyleBackColor = true;
+            this.btnLimpiarT3.Click += new System.EventHandler(this.btnLimpiarT3_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(184, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 17);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Materias";
+            // 
+            // cboMateriasT3
+            // 
+            this.cboMateriasT3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMateriasT3.FormattingEnabled = true;
+            this.cboMateriasT3.Location = new System.Drawing.Point(142, 96);
+            this.cboMateriasT3.Name = "cboMateriasT3";
+            this.cboMateriasT3.Size = new System.Drawing.Size(148, 21);
+            this.cboMateriasT3.TabIndex = 8;
+            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -305,6 +579,33 @@ namespace TpLaboratorio
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // lblCantReg
+            // 
+            this.lblCantReg.AutoSize = true;
+            this.lblCantReg.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantReg.Location = new System.Drawing.Point(6, 133);
+            this.lblCantReg.Name = "lblCantReg";
+            this.lblCantReg.Size = new System.Drawing.Size(168, 17);
+            this.lblCantReg.TabIndex = 17;
+            this.lblCantReg.Text = "Cantidad de Registros: 0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(299, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 17);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Año";
+            // 
+            // txtAnio
+            // 
+            this.txtAnio.Location = new System.Drawing.Point(257, 90);
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(121, 20);
+            this.txtAnio.TabIndex = 15;
             // 
             // label2
             // 
@@ -334,6 +635,7 @@ namespace TpLaboratorio
             this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(6, 172);
             this.dataGridView2.Name = "dataGridView2";
@@ -341,32 +643,100 @@ namespace TpLaboratorio
             this.dataGridView2.Size = new System.Drawing.Size(641, 271);
             this.dataGridView2.TabIndex = 8;
             // 
-            // label3
+            // label12
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(299, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 17);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Año";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(327, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(127, 17);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Estado Academico";
             // 
-            // txtAnio
+            // btnBuscarT3
             // 
-            this.txtAnio.Location = new System.Drawing.Point(257, 90);
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(121, 20);
-            this.txtAnio.TabIndex = 15;
+            this.btnBuscarT3.Location = new System.Drawing.Point(496, 98);
+            this.btnBuscarT3.Name = "btnBuscarT3";
+            this.btnBuscarT3.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarT3.TabIndex = 17;
+            this.btnBuscarT3.Text = "Buscar";
+            this.btnBuscarT3.UseVisualStyleBackColor = true;
+            this.btnBuscarT3.Click += new System.EventHandler(this.btnBuscarT3_Click);
             // 
-            // lblCantReg
+            // label13
             // 
-            this.lblCantReg.AutoSize = true;
-            this.lblCantReg.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantReg.Location = new System.Drawing.Point(6, 133);
-            this.lblCantReg.Name = "lblCantReg";
-            this.lblCantReg.Size = new System.Drawing.Size(168, 17);
-            this.lblCantReg.TabIndex = 17;
-            this.lblCantReg.Text = "Cantidad de Registros: 0";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(292, 165);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 17);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Alumnos";
+            // 
+            // dgvT3
+            // 
+            this.dgvT3.AllowUserToAddRows = false;
+            this.dgvT3.AllowUserToDeleteRows = false;
+            this.dgvT3.AllowUserToResizeColumns = false;
+            this.dgvT3.AllowUserToResizeRows = false;
+            this.dgvT3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvT3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvT3.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvT3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            this.dgvT3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvT3.Location = new System.Drawing.Point(4, 185);
+            this.dgvT3.Name = "dgvT3";
+            this.dgvT3.ReadOnly = true;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvT3.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            this.dgvT3.Size = new System.Drawing.Size(641, 264);
+            this.dgvT3.TabIndex = 21;
+            // 
+            // cboEstadoAcademico
+            // 
+            this.cboEstadoAcademico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoAcademico.FormattingEnabled = true;
+            this.cboEstadoAcademico.Location = new System.Drawing.Point(317, 98);
+            this.cboEstadoAcademico.Name = "cboEstadoAcademico";
+            this.cboEstadoAcademico.Size = new System.Drawing.Size(148, 21);
+            this.cboEstadoAcademico.TabIndex = 23;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Goldenrod;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Location = new System.Drawing.Point(7, 161);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(638, 23);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Buscar Materias de Alumno";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(25, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(605, 45);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Cantidades de alumnos  por edades, estado civil, situación habitacional y laboral" +
+    "";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Inicio
             // 
@@ -375,7 +745,9 @@ namespace TpLaboratorio
             this.ClientSize = new System.Drawing.Size(800, 483);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultas";
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.panel1.ResumeLayout(false);
@@ -383,9 +755,17 @@ namespace TpLaboratorio
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvT3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,6 +798,30 @@ namespace TpLaboratorio
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label lblCantReg;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgvDetalles;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboExamenes;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox cboAlumnos;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnLimpiarT3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboMateriasT3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dgvT3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnBuscarT3;
+        private System.Windows.Forms.ComboBox cboEstadoAcademico;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label8;
     }
 }
 

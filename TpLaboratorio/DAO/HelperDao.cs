@@ -25,20 +25,36 @@ namespace TpLaboratorio.DAO
 
         public DataTable GetTable(string nombreSp,Dictionary<string,object> parametros)
         {
-            SqlCommand command = new SqlCommand(nombreSp,connection);
-            command.CommandType = CommandType.StoredProcedure;
-            foreach (KeyValuePair<string,object> parametro in parametros)
+            try
             {
-                if (parametro.Value is null) {
-                    command.Parameters.AddWithValue(parametro.Key,DBNull.Value);
+                SqlCommand command = new SqlCommand(nombreSp, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                foreach (KeyValuePair<string, object> parametro in parametros)
+                {
+                    if (parametro.Value is null)
+                    {
+                        command.Parameters.AddWithValue(parametro.Key, DBNull.Value);
+                    }
+                    command.Parameters.AddWithValue(parametro.Key, parametro.Value);
                 }
-                command.Parameters.AddWithValue(parametro.Key,parametro.Value);
+                DataTable table = new DataTable();
+                connection.Open();
+                table.Load(command.ExecuteReader());
+                return table;
             }
-            DataTable table = new DataTable();
-            connection.Open();
-            table.Load(command.ExecuteReader());
-            connection.Close();
-            return table;
+            catch (Exception)
+            {
+                return null;
+            }
+            finally {
+                if(connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                
+            }
+            
+            
         }
     }
 }
