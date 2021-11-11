@@ -45,6 +45,7 @@ namespace TpLaboratorio
             tabControl1.SelectTab(4);
         }
 
+        
         private void Inicio_Load(object sender, EventArgs e)
         {
             tabControl1.Appearance = TabAppearance.FlatButtons;
@@ -54,6 +55,9 @@ namespace TpLaboratorio
             GetExamenes();
             GetAlumnos();
             CargarEstadoAcademico();
+            GetEstadoCivil();
+            GetSituacionLaboral();
+            GetSituacionHabitacional();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -98,7 +102,7 @@ namespace TpLaboratorio
 
         private void btnlLimpiar_Click(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = -1;
+            
         }
         private void CargarMaterias() {
 
@@ -308,6 +312,95 @@ namespace TpLaboratorio
             Dictionary<string, object> parametros = new Dictionary<string, object>();
             parametros.Add("@legajo", cboAlumnos.SelectedValue);
             dgvDetalles.DataSource = consultasDao.GetConsulta("SP_MATERIAS_ALUMNOS", parametros);
+        }
+
+
+        private void GetEstadoCivil()
+        {
+            cboEstadoCivil.DataSource = consultasDao.GetConsulta("SP_GET_ESTADO_CIVIL", new Dictionary<string, object>());
+            cboEstadoCivil.DisplayMember = "Estado";
+            cboEstadoCivil.ValueMember = "Estado";
+        }
+        private void GetSituacionLaboral()
+        {
+            cboSituacionLaboral.DataSource = consultasDao.GetConsulta("SP_GET_SITUACION_LABORAL", new Dictionary<string, object>());
+            cboSituacionLaboral.DisplayMember = "Situacion";
+            cboSituacionLaboral.ValueMember = "Situacion";
+        }
+        private void GetSituacionHabitacional()
+        {
+            cboSituacionHabitacional.DataSource = consultasDao.GetConsulta("SP_GET_SITUACION_HABITACIONAL", new Dictionary<string, object>());
+            cboSituacionHabitacional.DisplayMember = "Situacion";
+            cboSituacionHabitacional.ValueMember = "Situacion";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            cboEstadoCivil.SelectedIndex = -1;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            cboSituacionLaboral.SelectedIndex = -1;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            cboSituacionHabitacional.SelectedIndex = -1;
+        }
+
+        private void btnBuscarT4_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+
+            if (cboEstadoCivil.SelectedIndex < 0)
+            {
+                parametros.Add("@estadoCivil", DBNull.Value);
+            }
+            else {
+                parametros.Add("@estadoCivil", cboEstadoCivil.SelectedValue.ToString());
+            }
+            if (cboSituacionHabitacional.SelectedIndex < 0)
+            {
+                parametros.Add("@situacionHab", DBNull.Value);
+            }
+            else
+            {
+                parametros.Add("@situacionHab", cboSituacionHabitacional.SelectedValue.ToString());
+            }
+            if (cboSituacionLaboral.SelectedIndex < 0)
+            {
+                parametros.Add("@situacionLab", DBNull.Value);
+            }
+            else
+            {
+                parametros.Add("@situacionLab", cboSituacionLaboral.SelectedValue.ToString());
+            }
+            if (chEdad.CheckState == CheckState.Checked)
+            {
+                parametros.Add("@edad", numericUpDown2.Value);
+            }
+            else {
+                parametros.Add("@edad", DBNull.Value);
+            }
+
+            dataGridView3.DataSource = consultasDao.GetConsulta("spCantidadAlumnosFiltrados", parametros);
+            if (dataGridView3.Rows.Count < 1)
+            {
+                MessageBox.Show("No se encontraron resultados", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void chEdad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chEdad.CheckState != CheckState.Checked)
+            {
+                numericUpDown2.Enabled = false;
+            }
+            else {
+                numericUpDown2.Enabled = true;
+            }
         }
     }
 }

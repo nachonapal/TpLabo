@@ -65,5 +65,6 @@ namespace TpLaboratorio.DAO
         {
             HelperDao.GetInstancia().GetTable(nombreSp,parametros);
         }
+
     }
 }

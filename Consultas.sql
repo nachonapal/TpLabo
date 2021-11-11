@@ -1,31 +1,34 @@
 --1)Cantidades de alumnos  por edades, estado civil, situación habitacional y laboral, etc.
 CREATE PROCEDURE spCantidadAlumnosFiltrados
 @edad int,
-@estadoCivil int,
-@situacionHab int,
-@situacionLab int
+@estadoCivil varchar(50),
+@situacionHab varchar(50),
+@situacionLab varchar(50)
 AS
 	declare @cantidad int;
 	BEGIN
-		set @cantidad = (select count(*)  as 'Cantidad de Alumnos'
-			from ALUMNOS
+		set @cantidad = (select count(*) 
+			from ALUMNOS al
+			join TIPOS_ESTADO_CIVIL ec on ec.id_estado_civil = al.id_estado_civil
+			join SITUACIONES_HABITACIONALES sh on sh.id_situacion_habitacional = al.id_situacion_habitacional
+			join SITUACIONES_LABORALES sl on sl.id_situacion_laboral = al.id_situacion_laboral
 			where (@edad is null or (DATEDIFF(YEAR,fecha_nac,GETDATE())) = @edad)
-			and (@estadoCivil is null or id_estado_civil = @estadoCivil)
-			and (@situacionHab is null or id_situacion_habitacional = @situacionHab)
-			and (@situacionLab is null or id_situacion_laboral = @situacionLab))
+			and (@estadoCivil is null or estado_civil = @estadoCivil)
+			and (@situacionHab is null or situacion_habitacional = @situacionHab)
+			and (@situacionLab is null or situacion_laboral = @situacionLab))
 		
 		if(@cantidad > 0)
-			select @cantidad
+			select @cantidad as 'Cantidad de Alumnos'
 		else
 			raiserror('No se encontraron resultados',10,1)
 		
 	END
 
---exec dbo.spCantidadAlumnosFiltrados
---@edad = 50,
---@estadoCivil = 2,
---@situacionHab = 2,
---@situacionLab = 77
+exec dbo.spCantidadAlumnosFiltrados null,null,null,null
+@edad = 50,
+@estadoCivil = 2,
+@situacionHab = 2,
+@situacionLab = 77
 
 --2)Alumnos inscriptos en cada materia filtrando materia y año
 CREATE PROCEDURE spConsultarAlumnosMateria
@@ -241,4 +244,23 @@ BEGIN
 END
 exec SP_MATERIAS_ALUMNOS 100018
 
-update 
+CREATE PROCEDURE SP_GET_ESTADO_CIVIL
+AS
+BEGIN
+	SELECT estado_civil AS Estado
+	FROM TIPOS_ESTADO_CIVIL
+END
+
+CREATE alter PROCEDURE SP_GET_SITUACION_HABITACIONAL
+AS
+BEGIN
+	SELECT situacion_habitacional AS Situacion
+	FROM SITUACIONES_HABITACIONALES
+END
+
+CREATE alter PROCEDURE SP_GET_SITUACION_LABORAL
+AS
+BEGIN
+	SELECT situacion_laboral AS Situacion
+	FROM SITUACIONES_LABORALES
+END
